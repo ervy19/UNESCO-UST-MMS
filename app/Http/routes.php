@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function()
+{
+	return view('welcome');
+});
 
-Route::get('home', 'HomeController@index');
+Route::resource('members', 'MembersController');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::resource('positions', 'PositionsController');
+
+Route::resource('officers', 'OfficersController');
+
+Route::resource('projects', 'ProjectsController');
